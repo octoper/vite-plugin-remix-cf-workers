@@ -21,8 +21,7 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
-    "build": "pnpm run build-fast -- --dts-resolve",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
     "test": "vitest run",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp && npm publish --access=public"
