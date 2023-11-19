@@ -11,6 +11,16 @@ function VitePluginRemixCfWorkers(): Plugin {
     name: `vite-plugin-remix-cf-workers`,
     apply: 'build',
     enforce: 'pre',
+    config() {
+      return {
+        resolve: {
+          conditions: ['webworker', 'worker'],
+        },
+        ssr: {
+          target: 'webworker',
+        },
+      };
+    },
     async transform(_src, id) {
       if (/entry\.server\.(.*)\.tsx/.test(id)) {
         const magic = new MagicString(entryServerTemplate);
