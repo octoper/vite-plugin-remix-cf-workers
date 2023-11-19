@@ -1,0 +1,46 @@
+{
+  "name": "@octoper/vite-plugin-remix-cf-workers",
+  "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "author": "octoper <me@octoper.me>",
+  "keywords": [
+    "vite-plugin"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build-fast": "tsup src/index.ts --format cjs,esm",
+    "build": "pnpm run build-fast -- --dts-resolve",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run build",
+    "release": "bumpp && npm publish"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "vite": "^5.0.0"
+  },
+  "devDependencies": {
+    "@egoist/prettier-config": "1.0.0",
+    "bumpp": "^9.2.0",
+    "prettier": "3.1.0",
+    "tsup": "8.0.0",
+    "typescript": "5.2.2",
+    "vite": "^5.0.0",
+    "vitest": "0.34.6"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "magic-string": "^0.30.5"
+  }
+}
