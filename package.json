@@ -1,6 +1,6 @@
 {
   "name": "@octoper/vite-plugin-remix-cf-workers",
-  "version": "0.0.1",
+  "version": "0.0.2-beta.0",
   "private": false,
   "files": [
     "dist"
