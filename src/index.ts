@@ -11,6 +11,17 @@ function VitePluginRemixCfWorkers(): Plugin {
     name: `vite-plugin-remix-cf-workers`,
     apply: 'build',
     enforce: 'pre',
+    configResolved(config) {
+      const remixVitePlugin = config.plugins.find(
+        (p) => p.name === 'remix'
+      );
+
+      if (!remixVitePlugin) {
+        throw new Error(
+          'vite-plugin-remix-cf-workers requires the Remix Vite plugin to be installed'
+        );
+      }
+    },
     config() {
       return {
         resolve: {
