@@ -35,6 +35,7 @@ function VitePluginRemixCfWorkers(): Plugin {
           ? viteConfigEnv.ssrBuild // Vite v4 back compat
           : viteConfigEnv.isSsrBuild;
 
+      console.log(path.resolve(rootDirectory, 'server.ts'));
       return {
         resolve: {
           conditions: ['webworker', 'worker'],
